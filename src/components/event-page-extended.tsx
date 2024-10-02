@@ -62,7 +62,7 @@ export default function EventPageExtended() {
   // const [showBankDetails, setShowBankDetails] = useState(false);
 
   return (
-    <div className="max-w-md mx-auto p-4 space-y-6">
+    <div className="max-w-md mx-auto p-4 space-y-6" >
       {/* Bloque de imagen principal */}
       <div className="rounded-lg overflow-hidden shadow-lg">
         <Image
@@ -75,13 +75,13 @@ export default function EventPageExtended() {
       </div>
 
       {/* Bloque de título del evento */}
-      <div className="bg-primary text-primary-foreground p-6 rounded-lg shadow text-center">
+      <div className="bg-primary text-primary-foreground p-6 rounded-lg shadow text-center" style={{ backgroundColor: "#5E3D4A" }}>
         <h1 className="text-3xl font-bold mb-2">¡Nuestro aniversario!</h1>
         {/* <p className=text-xl>¡Porque bailando se vive mejor!</p> */}
       </div>
 
       {/* Bloque de cuenta regresiva */}
-      <div className="bg-secondary text-secondary-foreground p-4 rounded-lg shadow">
+      <div className="p-4 rounded-lg shadow text-primary-foreground" style={{ backgroundColor: "#000000" }}>
         <h2 className="text-xl font-bold mb-2 text-center flex items-center justify-center">
           <Clock className="mr-2" /> Cuenta regresiva
         </h2>
@@ -89,18 +89,18 @@ export default function EventPageExtended() {
       </div>
 
       {/* Bloque de localización */}
-      <div className="bg-primary text-primary-foreground p-4 rounded-lg shadow">
+      <div className="bg-muted text-accent-foreground p-4 rounded-lg shadow">
         <h2 className="text-xl font-bold mb-2 flex items-center">
           <MapPin className="mr-2" /> Localización
         </h2>
         <p className="mb-4">Finca Don Roque</p>
         <button
-          className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-bold py-2 px-4 rounded"
+          className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold py-2 px-4 rounded"
           onClick={() =>
             (window.location.href = "https://maps.app.goo.gl/S2hRonxMNXkxES1z6")
           }
         >
-          Ubicacion
+          UBICACION
         </button>
       </div>
 
@@ -125,7 +125,7 @@ export default function EventPageExtended() {
       </div>
 
       {/* Bloque de entretenimiento */}
-      <div className="bg-primary text-primary-foreground p-4 rounded-lg shadow">
+      <div className="bg-secondary text-secondary-foreground p-4 rounded-lg shadow">
         <h2 className="text-xl font-bold mb-2 flex items-center">
           <Music className="mr-2" /> Entretenimiento
         </h2>
@@ -142,7 +142,8 @@ export default function EventPageExtended() {
         <h2 className="text-xl font-bold mb-2 flex items-center">
           <Utensils className="mr-2" /> Menú
         </h2>
-        <p>Asado a 2 Fuegos, Pollo, Chorizo, Ensaladas.</p>
+        <p>Entrada con empanadas y vino rosado</p>
+        <p>Asado 2 Fuegos, Pollo, Chorizo, Ensaladas.</p>
         <p className="mt-2">(Sin bebida)</p>
         <p className="font-bold mt-2">¡Habrá venta de bebidas!</p>
       </div>
@@ -169,10 +170,10 @@ export default function EventPageExtended() {
       </div> */}
 
       {/* Bloque de código de vestimenta */}
-      <div className="bg-primary text-primary-foreground p-4 rounded-lg shadow">
+      <div className="bg-secondary text-secondary-foreground p-4 rounded-lg shadow">
         <h2 className="text-xl font-bold mb-2">Código de Vestimenta</h2>
         <p>
-          Como te sientas a gusto! <br /> ¡Prepárate para bailar toda la noche!
+          Como te sientas a gusto! <br /> Prepárate para bailar toda la noche!
         </p>
       </div>
 
