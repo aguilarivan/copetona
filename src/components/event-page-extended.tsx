@@ -167,7 +167,7 @@ export default function EventPageExtended() {
       <div className="bg-secondary text-secondary-foreground p-4 rounded-lg shadow">
         <h2 className="text-xl font-bold mb-2">Código de Vestimenta</h2>
         <p>
-          Como te sientas a gusto! <br /> Prepárate para bailar toda la noche!
+          Como te sientas a gusto! <br /> Prepárate para bailar toda la tarde noche!
         </p>
       </div>
 
@@ -177,12 +177,13 @@ export default function EventPageExtended() {
           <Gift className="mr-2" /> Regalos
         </h2>
         <p>
-          Tu presencia es el mejor regalo, pero si deseas obsequiar algo,
+          Tu presencia es el mejor regalo, pero si deseas obsequiar algo, estaremos haciendo una colecta para hacer donativos, te 
           sugerimos:
         </p>
         <ul className="list-disc list-inside mt-2">
           <li>Libros</li>
-          <li>Plantas</li>
+          <li>Ropa que no uses</li>
+          <li>Alimentos no perecederos</li>
         </ul>
       </div>
 
