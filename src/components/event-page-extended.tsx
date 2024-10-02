@@ -225,7 +225,7 @@ export default function EventPageExtended() {
       <div className="bg-primary text-primary-foreground p-4 rounded-lg shadow">
         <h2 className="text-xl font-bold mb-2">Información adicional</h2>
         <p>
-          Habrá estacionamiento disponible. Si necesitas transporte especial o
+          Habrá estacionamiento disponible. Si necesitas o
           tienes alguna restricción alimentaria, por favor contáctanos.
         </p>
       </div>
