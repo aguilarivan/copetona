@@ -8,11 +8,11 @@ interface CountdownProps {
   targetDate: string; // O puedes usar Date si prefieres trabajar directamente con objetos de tipo Date
 }
 const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft())
+  const [timeLeft, setTimeLeft] = useState<{ [key: string]: number }>(calculateTimeLeft())
 
   function calculateTimeLeft() {
     const difference = +new Date(targetDate) - +new Date()
-    let timeLeft = {}
+    let timeLeft: { [key: string]: number } = {}
 
     if (difference > 0) {
       timeLeft = {
