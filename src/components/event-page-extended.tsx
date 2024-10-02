@@ -4,7 +4,10 @@ import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { MapPin, Clock, Music, Utensils, Gift, Camera, DollarSign } from 'lucide-react'
 
-const Countdown = ({ targetDate }) => {
+interface CountdownProps {
+  targetDate: string; // O puedes usar Date si prefieres trabajar directamente con objetos de tipo Date
+}
+const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft())
 
   function calculateTimeLeft() {
@@ -41,7 +44,7 @@ const Countdown = ({ targetDate }) => {
       ))}
     </div>
   )
-}
+} 
 
 export default function EventPageExtended() {
   const [confirmed, setConfirmed] = useState(false)
