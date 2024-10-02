@@ -58,7 +58,7 @@ const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
 };
 
 export default function EventPageExtended() {
-  const [confirmed, setConfirmed] = useState(false);
+  // const [confirmed, setConfirmed] = useState(false);
   // const [showBankDetails, setShowBankDetails] = useState(false);
 
   return (
@@ -197,24 +197,18 @@ export default function EventPageExtended() {
 
       {/* Bloque de playlist */}
       <div className="bg-green-400 text-green-foreground p-4 rounded-lg shadow ">
-      <h2 className="text-xl font-bold mb-2 flex items-center">
+        <h2 className="text-xl font-bold mb-2 flex items-center">
           <AudioLines className="mr-2" /> Hagamos previa
         </h2>
         <p className="mb-4">
           Se parte del tiempo de espera, compartiendo tus canciones favoritas.
         </p>
-        {!confirmed ? (
-          <button
-            onClick={() => setConfirmed(true)}
-            className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold py-2 px-4 rounded"
-          >
-            Link playlist
-          </button>
-        ) : (
-          <p className="text-green-400 font-semibold">
-            ¡Asistencia confirmada!
-          </p>
-        )}
+        <button
+          onClick={() => window.open("https://open.spotify.com/playlist/0gX2OkE7wmaQtMT4eoHZlW?si=JdYZHwFNQoCRLEMNHU6a0g&pi=u-DC9nB9f4Tj-4", "_blank")}
+          className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold py-2 px-4 rounded"
+        >
+          Link playlist
+        </button>
       </div>
 
       {/* Bloque de información adicional */}
