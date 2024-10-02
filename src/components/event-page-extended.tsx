@@ -1,38 +1,49 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react'
-import Image from 'next/image'
-import { MapPin, Clock, Music, Utensils, Gift, Camera, DollarSign } from 'lucide-react'
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import {
+  MapPin,
+  Clock,
+  Music,
+  Utensils,
+  Gift,
+  Camera,
+  DollarSign,
+  AudioLines
+} from "lucide-react";
 
 interface CountdownProps {
   targetDate: string; // O puedes usar Date si prefieres trabajar directamente con objetos de tipo Date
 }
 const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
-  const [timeLeft, setTimeLeft] = useState<{ [key: string]: number }>(calculateTimeLeft())
+  const [timeLeft, setTimeLeft] = useState<{ [key: string]: number }>(
+    calculateTimeLeft()
+  );
 
   function calculateTimeLeft() {
-    const difference = +new Date(targetDate) - +new Date()
-    let timeLeft: { [key: string]: number } = {}
+    const difference = +new Date(targetDate) - +new Date();
+    let timeLeft: { [key: string]: number } = {};
 
     if (difference > 0) {
       timeLeft = {
         días: Math.floor(difference / (1000 * 60 * 60 * 24)),
         horas: Math.floor((difference / (1000 * 60 * 60)) % 24),
         minutos: Math.floor((difference / 1000 / 60) % 60),
-        segundos: Math.floor((difference / 1000) % 60)
-      }
+        segundos: Math.floor((difference / 1000) % 60),
+      };
     }
 
-    return timeLeft
+    return timeLeft;
   }
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setTimeLeft(calculateTimeLeft())
-    }, 1000)
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
 
-    return () => clearTimeout(timer)
-  })
+    return () => clearTimeout(timer);
+  });
 
   return (
     <div className="flex justify-center space-x-4">
@@ -43,16 +54,15 @@ const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
         </div>
       ))}
     </div>
-  )
-} 
+  );
+};
 
 export default function EventPageExtended() {
-  const [confirmed, setConfirmed] = useState(false)
-  const [showBankDetails, setShowBankDetails] = useState(false)
+  const [confirmed, setConfirmed] = useState(false);
+  const [showBankDetails, setShowBankDetails] = useState(false);
 
   return (
     <div className="max-w-md mx-auto p-4 space-y-6">
-      
       {/* Bloque de imagen principal */}
       <div className="rounded-lg overflow-hidden shadow-lg">
         <Image
@@ -79,45 +89,51 @@ export default function EventPageExtended() {
       </div>
 
       {/* Bloque de localización */}
-      <div className="bg-muted p-4 rounded-lg shadow">
+      <div className="bg-primary text-primary-foreground p-4 rounded-lg shadow">
         <h2 className="text-xl font-bold mb-2 flex items-center">
           <MapPin className="mr-2" /> Localización
         </h2>
-        <p>Finca Don Roque</p>
+        <p className="mb-4">Finca Don Roque</p>
         <button
-          className="bg-primary text-secondary hover:bg-primary/90 font-bold py-2 px-4 rounded"
-          onClick={() => window.location.href = 'https://maps.app.goo.gl/S2hRonxMNXkxES1z6'}
+          className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-bold py-2 px-4 rounded"
+          onClick={() =>
+            (window.location.href = "https://maps.app.goo.gl/S2hRonxMNXkxES1z6")
+          }
         >
           Ubicacion
         </button>
       </div>
 
       {/* Bloque de confirmación */}
-      <div className="bg-primary text-primary-foreground p-4 rounded-lg shadow ">
+      <div className="bg-muted text-secondary-foreground p-4 rounded-lg shadow ">
         <h2 className="text-xl font-bold mb-2">Confirmá tu asistencia</h2>
-        <p className="mb-4">Esperamos que seas parte de esta gran celebración.</p>
+        <p className="mb-4">
+          Esperamos que seas parte de esta gran celebración.
+        </p>
         {!confirmed ? (
           <button
             onClick={() => setConfirmed(true)}
-            className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-bold py-2 px-4 rounded"
+            className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold py-2 px-4 rounded"
           >
             CONFIRMAR AQUÍ
           </button>
         ) : (
-          <p className="text-green-400 font-semibold">¡Asistencia confirmada!</p>
+          <p className="text-green-400 font-semibold">
+            ¡Asistencia confirmada!
+          </p>
         )}
       </div>
 
       {/* Bloque de entretenimiento */}
-      <div className="bg-accent text-accent-foreground p-4 rounded-lg shadow">
+      <div className="bg-primary text-primary-foreground p-4 rounded-lg shadow">
         <h2 className="text-xl font-bold mb-2 flex items-center">
           <Music className="mr-2" /> Entretenimiento
         </h2>
         <p>DJ y Bandas en Vivo</p>
         <ul className="list-disc list-inside mt-2">
-          <li>DJ Ritmo Loco</li>
-          <li>Banda Los Inoxidables</li>
-          <li>Grupo de Baile Pies de Fuego</li>
+          {/* <li>DJ Ritmo Loco</li> */}
+          {/* <li>Banda Los Inoxidables</li> */}
+          {/* <li>Grupo de Baile Pies de Fuego</li> */}
         </ul>
       </div>
 
@@ -126,13 +142,13 @@ export default function EventPageExtended() {
         <h2 className="text-xl font-bold mb-2 flex items-center">
           <Utensils className="mr-2" /> Menú
         </h2>
-        <p>Asado, Pollo, Chorizo, Ensalada y Postre.</p>
+        <p>Asado a 2 Fuegos, Pollo, Chorizo, Ensaladas.</p>
         <p className="mt-2">(Sin bebida)</p>
         <p className="font-bold mt-2">¡Habrá venta de bebidas!</p>
       </div>
 
       {/* Bloque de precio y pago */}
-      <div className="bg-primary text-primary-foreground p-4 rounded-lg shadow">
+      {/* <div className="bg-primary text-primary-foreground p-4 rounded-lg shadow">
         <h2 className="text-xl font-bold mb-2 flex items-center">
           <DollarSign className="mr-2" /> Valor y Forma de Pago
         </h2>
@@ -150,12 +166,14 @@ export default function EventPageExtended() {
             <p>Titular: Juan Pérez</p>
           </div>
         )}
-      </div>
+      </div> */}
 
       {/* Bloque de código de vestimenta */}
-      <div className="bg-secondary text-secondary-foreground p-4 rounded-lg shadow">
+      <div className="bg-primary text-primary-foreground p-4 rounded-lg shadow">
         <h2 className="text-xl font-bold mb-2">Código de Vestimenta</h2>
-        <p>Elegante casual. ¡Prepárate para bailar toda la noche!</p>
+        <p>
+          Como te sientas a gusto! <br /> ¡Prepárate para bailar toda la noche!
+        </p>
       </div>
 
       {/* Bloque de regalos */}
@@ -163,30 +181,54 @@ export default function EventPageExtended() {
         <h2 className="text-xl font-bold mb-2 flex items-center">
           <Gift className="mr-2" /> Regalos
         </h2>
-        <p>Tu presencia es el mejor regalo, pero si deseas obsequiar algo, sugerimos:</p>
+        <p>
+          Tu presencia es el mejor regalo, pero si deseas obsequiar algo,
+          sugerimos:
+        </p>
         <ul className="list-disc list-inside mt-2">
-          <li>Vinos</li>
           <li>Libros</li>
           <li>Plantas</li>
         </ul>
       </div>
 
       {/* Bloque de hashtag para redes sociales */}
-      <div className="bg-muted p-4 rounded-lg shadow text-center">
+      <div className="bg-primary text-primary-foreground p-4 rounded-lg shadow text-center">
         <h2 className="text-xl font-bold mb-2 flex items-center justify-center">
           <Camera className="mr-2" /> Comparte tus fotos
         </h2>
-        <p className="text-2xl font-bold">#Fiesta70deJuan</p>
+        <p className="text-2xl font-bold">#Copetona1Año</p>
+      </div>
+
+      {/* Bloque de playlist */}
+      <div className="bg-green-400 text-green-foreground p-4 rounded-lg shadow ">
+      <h2 className="text-xl font-bold mb-2 flex items-center">
+          <AudioLines className="mr-2" /> Hagamos previa
+        </h2>
+        <p className="mb-4">
+          Se parte del tiempo de espera, compartiendo tus canciones favoritas.
+        </p>
+        {!confirmed ? (
+          <button
+            onClick={() => setConfirmed(true)}
+            className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold py-2 px-4 rounded"
+          >
+            Link playlist
+          </button>
+        ) : (
+          <p className="text-green-400 font-semibold">
+            ¡Asistencia confirmada!
+          </p>
+        )}
       </div>
 
       {/* Bloque de información adicional */}
       <div className="bg-primary text-primary-foreground p-4 rounded-lg shadow">
         <h2 className="text-xl font-bold mb-2">Información adicional</h2>
         <p>
-          Habrá estacionamiento disponible. Si necesitas transporte especial o tienes alguna
-          restricción alimentaria, por favor contáctanos.
+          Habrá estacionamiento disponible. Si necesitas transporte especial o
+          tienes alguna restricción alimentaria, por favor contáctanos.
         </p>
       </div>
     </div>
-  )
+  );
 }
