@@ -2,9 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
 import { MapPin, Clock, Music, Utensils, Gift, Camera, DollarSign } from 'lucide-react'
-import { ButtonIcon } from '@radix-ui/react-icons'
 
 const Countdown = ({ targetDate }) => {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft())
@@ -66,7 +64,7 @@ export default function EventPageExtended() {
       {/* Bloque de título del evento */}
       <div className="bg-primary text-primary-foreground p-6 rounded-lg shadow text-center">
         <h1 className="text-3xl font-bold mb-2">¡Nuestro aniversario!</h1>
-        {/* <p className="text-xl">¡Porque bailando se vive mejor!</p> */}
+        {/* <p className=text-xl>¡Porque bailando se vive mejor!</p> */}
       </div>
 
       {/* Bloque de cuenta regresiva */}
@@ -115,8 +113,8 @@ export default function EventPageExtended() {
         <p>DJ y Bandas en Vivo</p>
         <ul className="list-disc list-inside mt-2">
           <li>DJ Ritmo Loco</li>
-          <li>Banda "Los Inoxidables"</li>
-          <li>Grupo de Baile "Pies de Fuego"</li>
+          <li>Banda Los Inoxidables</li>
+          <li>Grupo de Baile Pies de Fuego</li>
         </ul>
       </div>
 
