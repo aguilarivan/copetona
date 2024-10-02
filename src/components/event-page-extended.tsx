@@ -9,7 +9,7 @@ import {
   Utensils,
   Gift,
   Camera,
-  DollarSign,
+  // DollarSign,
   AudioLines
 } from "lucide-react";
 
@@ -59,7 +59,7 @@ const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
 
 export default function EventPageExtended() {
   const [confirmed, setConfirmed] = useState(false);
-  const [showBankDetails, setShowBankDetails] = useState(false);
+  // const [showBankDetails, setShowBankDetails] = useState(false);
 
   return (
     <div className="max-w-md mx-auto p-4 space-y-6">
