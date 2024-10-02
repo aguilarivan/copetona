@@ -108,20 +108,14 @@ export default function EventPageExtended() {
       <div className="bg-muted text-secondary-foreground p-4 rounded-lg shadow ">
         <h2 className="text-xl font-bold mb-2">Confirmá tu asistencia</h2>
         <p className="mb-4">
-          Esperamos que seas parte de esta gran celebración.
+          Esperamos que seas parte de esta gran celebración. Si todavía no lo hiciste, confirmanos tu asistencia!
         </p>
-        {!confirmed ? (
-          <button
-            onClick={() => setConfirmed(true)}
-            className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold py-2 px-4 rounded"
-          >
-            CONFIRMAR AQUÍ
-          </button>
-        ) : (
-          <p className="text-green-400 font-semibold">
-            ¡Asistencia confirmada!
-          </p>
-        )}
+        <button
+          onClick={() => window.open("https://wa.me/+543482625657?text=Hola,%20quiero%20confirmar%20mi%20asistencia%20al%20evento.", "_blank")}
+          className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold py-2 px-4 rounded"
+        >
+          CONFIRMAR AQUÍ
+        </button>
       </div>
 
       {/* Bloque de entretenimiento */}
