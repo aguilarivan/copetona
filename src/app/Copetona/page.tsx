@@ -1,6 +1,6 @@
 import EventPageExtended from "@/components/event-page-extended";
 
-export default function Home() {
+export default function Copetona() {
   return (
       <EventPageExtended/>
   );
